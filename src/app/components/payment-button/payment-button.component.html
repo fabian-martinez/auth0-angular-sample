@@ -1,0 +1,16 @@
+<form #form method="post" action="https://sandbox.checkout.payulatam.com/ppp-web-gateway-payu/" (ngSubmit)="send(form)">
+    <input name="merchantId"    type="hidden"  value="{{payment_info.merchantId}}"   >
+    <input name="accountId"     type="hidden"  value="{{payment_info.accountId}}" >
+    <input name="description"   type="hidden"  value="{{payment_info.description}}"  >
+    <input name="amount"        type="hidden"  value="{{payment_info.amount}}">
+    <input name="referenceCode" type="hidden"  value="{{payment_info.referenceCode}}">
+    <input name="tax"           type="hidden"  value="{{payment_info.tax}}">
+    <input name="taxReturnBase" type="hidden"  value="{{payment_info.taxReturnBase}}">
+    <input name="currency"      type="hidden"  value="{{payment_info.currency}}">
+    <input name="signature"     type="hidden"  value="{{payment_info.signature}}">
+    <input name="test"          type="hidden"  value="{{payment_info.test}}">
+    <input name="buyerEmail"    type="hidden"  value="{{payment_info.buyerEmail}}">
+    <input name="responseUrl"    type="hidden"  value="{{payment_info.responseUrl}}" >
+    <input name="confirmationUrl"    type="hidden"  value="{{payment_info.confirmationUrl}}" >
+    <input name="Submit"        type="submit"  class="btn btn-outline-warning">
+  </form>

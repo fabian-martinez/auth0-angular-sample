@@ -16,17 +16,21 @@ import { ExternalApiComponent } from './pages/external-api/external-api.componen
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { HttpClientModule } from '@angular/common/http';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 
 import { LoginButtonComponent } from './components/login-button/login-button.component';
 import { SignupButtonComponent } from './components/signup-button/signup-button.component';
 import { LogoutButtonComponent } from './components/logout-button/logout-button.component';
 import { AuthenticationButtonComponent } from './components/authentication-button/authentication-button.component';
 import { AuthNavComponent } from './components/auth-nav/auth-nav.component';
+import { PaymentButtonComponent } from './components/payment-button/payment-button.component';
+import { FormComponent } from './pages/form/form.component';
+import { ProtectedFormComponent } from './pages/protected-form/protected-form.component';
+
 import { environment as env } from '../environments/environment';
 
-import { AuthHttpInterceptor } from '@auth0/auth0-angular';
 import { AuthModule } from '@auth0/auth0-angular';
-
+import { AuthHttpInterceptor } from '@auth0/auth0-angular';
 
 @NgModule({
   declarations: [
@@ -45,16 +49,21 @@ import { AuthModule } from '@auth0/auth0-angular';
     LogoutButtonComponent,
     AuthenticationButtonComponent,
     AuthNavComponent,
+    FormComponent,
+    PaymentButtonComponent,
+    ProtectedFormComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FontAwesomeModule,
+    FormsModule,
+    ReactiveFormsModule,
     AuthModule.forRoot({
       ...env.auth,
       httpInterceptor: {
-        allowedList: [`${env.dev.serverUrl}/api/messages/protected-message`],
+        allowedList: [`${env.dev.serverUrl}/api/*`],
       },
     }),
   ],

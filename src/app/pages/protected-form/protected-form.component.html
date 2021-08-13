@@ -1,0 +1,355 @@
+<form autocomplete="off" [formGroup]="form" (ngSubmit)="save()"> 
+    <hr>
+    <h3>Register Information</h3>
+    <hr>
+    <!-- nickname -->
+    <div class="form-group">
+        <label>Nickname</label>
+        <input type="text" 
+               class="form-control" 
+               placeholder="nickname" 
+               formControlName="nickname"
+               disabled>
+    </div>
+    <!-- email -->
+    <div class="form-group">
+        <label>Email address</label>
+        <input type="email" 
+               class="form-control" 
+               placeholder="name@example.com" 
+               formControlName="email"
+               disabled>
+    </div>
+    <hr>
+    <h3>Personal Information</h3>
+    <hr>
+    <div class="form-row">
+        <!-- firstname -->
+        <div class="form-group col-md-6">
+            <label>Name</label>
+            <input type="text" 
+                   class="form-control" 
+                   placeholder="firstname" 
+                   formControlName="firstname">
+        </div>
+        <!-- lastname -->
+        <div class="form-group col-md-6">
+            <label>Lastname</label>
+            <input type="text" 
+                   class="form-control" 
+                   placeholder="name" 
+                   formControlName="lastname">
+        </div>
+    </div>
+    <!-- gender -->
+    <div class="form-group" formGroupName="">
+        <label>Gender</label>
+        <div class="form-check">
+            <label class="form-check-label">
+                <input type="radio" 
+                   class="form-check-input"
+                   value="m" 
+                   formControlName="gender">
+                   Male
+            </label>
+        </div>
+        <div class="form-check">
+            <label class="form-check-label">
+                <input type="radio" 
+                   class="form-check-input"
+                   value="f" 
+                   formControlName="gender">
+                   Female
+            </label>
+        </div>
+    </div>
+    <!-- birth date -->
+    <div class="form-group">
+        <label>Bith Date</label>
+        <input type="date" 
+               name="bith_date" 
+               class="form-control" 
+               formControlName="birthdate">
+    </div>
+    <div class="form-row">
+        <!-- country -->
+        <div class="form-group col-md-6">
+            <label>Country of birth</label>
+            <select type="text" 
+                   class="form-control" 
+                   placeholder="name" 
+                   formControlName="country">
+                <option value="COL">Colombia</option>
+                <option value="ARG">Argentina</option>
+            </select>
+        </div>
+        <!-- city -->
+        <div class="form-group col-md-6">
+            <label>City of birth</label>
+            <select class="form-control" 
+                   placeholder="name" 
+                   formControlName="city">
+                <option value="BOG">Bogotá</option>
+                <option value="MED">Medellin</option>
+            </select>
+        </div>
+    </div>
+    <hr>
+    <h3>Professional Information</h3>
+    <hr>
+    <!-- affiliation -->
+    <div class="form-group">
+        <label>University or Company</label>
+        <input type="text" 
+               class="form-control" 
+               placeholder="name" 
+               formControlName="affiliation">
+    </div>
+    <!-- occupation -->
+    <div class="form-group">
+        <label>Occupation</label>
+        <input type="text" 
+               class="form-control" 
+               placeholder="name" 
+               formControlName="occupation">
+    </div>
+    <hr>
+    <h3>Membership Infromation</h3>
+    <hr>
+    <!-- is Member -->
+    <div class="form-group form-check">
+        <input type="checkbox" 
+        class="form-check-input" 
+        formControlName="is_ieee_member">
+        <label class="form-check-label" >Are you IEEE Member</label>
+    </div>
+    <div class="form-row">
+        <!-- membership type -->
+        <div class="form-group col-md-8">
+            <label>Membership type</label>
+            <select type="text" 
+                   class="form-control" 
+                   placeholder="name" 
+                   formControlName="membership_type">
+                <option value="YP">Young Porfessional</option>
+                <option value="PRO">Professional</option>
+                <option value="NAN">Does not apply</option>
+            </select>
+        </div>
+        <!-- member code -->
+        <div class="form-group col-md-4">
+            <label>Membership Code</label>
+            <input type="text" 
+                   class="form-control" 
+                   placeholder="name" 
+                   formControlName="member_code">
+        </div>
+    </div>
+    <hr>
+    <h3>Author Data</h3>
+    <hr>
+    <!-- is Author -->
+    <div class="form-group form-check">
+        <input type="checkbox" 
+               class="form-check-input" 
+               formControlName="is_author">
+        <label class="form-check-label" >Are you an author?</label>
+    </div>
+    <!-- papers -->
+    <legend>Papers</legend>
+    <div class="papers">
+        <!-- paper1 -->
+        <div class="paper">
+            <div class="form-row">
+                <!-- paper code -->
+                <div class="form-group col-md-2">
+                    <label>Code</label>
+                    <input type="text" 
+                           class="form-control" 
+                           placeholder="name" 
+                           formControlName="member_code">
+                </div>
+                <!-- paper tittle -->
+                <div class="form-group col-md-10">
+                    <label>Title</label>
+                    <input type="text" 
+                           class="form-control" 
+                           placeholder="name"
+                           formControlName="member_code">
+                </div>
+            </div>
+            <!-- paper tittle -->
+            <div class="authors">
+                <!-- author1 -->
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Author 1 -->
+                        <tr>
+                            <td>
+                                <div class="form-group">
+                                    <input type="text" 
+                                           class="form-control" 
+                                           placeholder="name" 
+                                           formControlName="member_code">
+                                </div>
+                            </td>
+                            <td>
+                                <div class="form-group">
+                                    <input type="text" 
+                                           class="form-control" 
+                                           placeholder="name" 
+                                           formControlName="member_code">
+                                </div>
+                            </td>
+                            <td>
+                                <button type="button" class="btn btn-danger"> - delete </button>
+                            </td>
+                        </tr>
+                        <!-- Author 2 -->
+                        <tr>
+                            <td>
+                                <div class="form-group">
+                                    <input type="text" 
+                                           class="form-control" 
+                                           placeholder="name" 
+                                           formControlName="member_code">
+                                </div>
+                            </td>
+                            <td>
+                                <div class="form-group">
+                                    <input type="text" 
+                                           class="form-control" 
+                                           placeholder="name" 
+                                           formControlName="member_code">
+                                </div>
+                            </td>
+                            <td>
+                                <button type="button" class="btn btn-danger"> - delete </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <button type="button"
+                        class="btn btn-primary">+ Add</button>
+            </div>
+        </div>
+        <hr>
+        <!-- paper1 -->
+        <label>Paper</label>
+        <div class="paper">
+            <div class="form-row">
+                <!-- paper code -->
+                <div class="form-group col-md-2">
+                    <label>Code</label>
+                    <input type="text" 
+                           class="form-control" 
+                           placeholder="name" 
+                           formControlName="member_code">
+                </div>
+                <!-- paper tittle -->
+                <div class="form-group col-md-10">
+                    <label>Title</label>
+                    <input type="text" 
+                           class="form-control" 
+                           placeholder="name"
+                           formControlName="member_code">
+                </div>
+            </div>
+            <!-- paper tittle -->
+            <legend>Authors</legend>
+            <div class="authors">
+                <!-- author1 -->
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Author 1 -->
+                        <tr>
+                            <td>
+                                <div class="form-group">
+                                    <input type="text" 
+                                           class="form-control" 
+                                           placeholder="name" 
+                                           formControlName="member_code">
+                                </div>
+                            </td>
+                            <td>
+                                <div class="form-group">
+                                    <input type="text" 
+                                           class="form-control" 
+                                           placeholder="name" 
+                                           formControlName="member_code">
+                                </div>
+                            </td>
+                            <td>
+                                <button type="button" class="btn btn-danger"> - delete </button>
+                            </td>
+                        </tr>
+                        <!-- Author 2 -->
+                        <tr>
+                            <td>
+                                <div class="form-group">
+                                    <input type="text" 
+                                           class="form-control" 
+                                           placeholder="name" 
+                                           formControlName="member_code">
+                                </div>
+                            </td>
+                            <td>
+                                <div class="form-group">
+                                    <input type="text" 
+                                           class="form-control" 
+                                           placeholder="name" 
+                                           formControlName="member_code">
+                                </div>
+                            </td>
+                            <td>
+                                <button type="button" class="btn btn-danger"> - delete </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <button type="button"
+                        class="btn btn-primary">+ Add</button>
+            </div>
+        </div>
+        <hr>
+    </div>
+    
+
+    <!-- submit button -->
+    <hr>
+    <hr>
+    <div class="row">
+        <div class="col-md-8"></div>
+        <div class="col-md-4">
+            <button type="submit" 
+                    class="btn btn-success btn-block">
+                Submit
+            </button>
+        </div>
+    </div>
+</form>
+
+<hr>
+<pre>
+    Estado formulario: {{form.valid}}
+    <br>
+    Status: {{form.status | json}}
+  </pre>
+
+<pre>
+    {{form.value | json}}
+  </pre>

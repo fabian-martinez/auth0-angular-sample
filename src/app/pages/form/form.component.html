@@ -1,0 +1,135 @@
+<form autocomplete="off" [formGroup]="form" (ngSubmit)="save()">
+    <div class="form-group">
+      <label>Email address</label>
+      <input type="email" 
+             class="form-control" 
+             placeholder="name@example.com" 
+             formControlName="email"             
+             [class.is-invalid]="invalid_email">
+      <small *ngIf="invalid_email">El campo es obligatorio</small>
+    </div>
+    <div class="form-group">
+      <label>Nombre</label>
+      <input type="text" 
+             class="form-control"
+             placeholder="name"
+             formControlName="name" 
+             [class.is-invalid]="invalid_name">
+      <small *ngIf="invalid_name">El campo es obligatorio</small>
+    </div>
+    <div class="form-group">
+      <label>Async Validator</label>
+      <input type="text" 
+             class="form-control"
+             placeholder="asinc_validator"
+             formControlName="async_validator"
+             [class.is-invalid]="invalid_filed_async">
+      <small *ngIf="invalid_filed_async">El campo es obligatorio</small>
+    </div>
+    <div class="form-group">
+      <label>Example select</label>
+      <select class="form-control" 
+              formControlName="option">
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label>Example multiple select</label>
+      <select multiple class="form-control"
+              formControlName="multipleOption">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label>Example textarea</label>
+      <textarea class="form-control"
+                rows="3" 
+                formControlName="textbox"></textarea>
+    </div>
+    <div class="form-group form-check">
+      <input type="checkbox" 
+             class="form-check-input" 
+             formControlName="checkin">
+      <label class="form-check-label" >Check me out</label>
+    </div>
+    <div class="form-row" formGroupName="form_grup">
+      <div class="col-md-7">
+        <label>Nombre</label>
+        <input type="text" 
+               class="form-control"
+               placeholder="name"
+               formControlName="text_grup" 
+               [class.is-invalid]="invalid_text_grup">
+        <small *ngIf="invalid_text_grup">El campo es obligatorio</small>
+      </div>
+      <div class="col-md-5">
+        <label for="formControlRange">Example Range input</label>
+        <input type="range"
+               class="form-control-range"
+               id="formControlRange"
+               formControlName="range">
+      </div>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col">
+        <label for="formControlRange">Table to dinamic inputs</label>
+        <table class="table" formArrayName="form_array">
+          <thead class="thead-dark" *ngIf="from_array.length>0">
+            <tr>
+              <th>ID</th>
+              <th>Name</th>
+              <th>Delete</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of from_array.controls;index as i">
+              <td>{{i+1}}</td>
+              <td>
+                <input type="text" 
+                  class="form-control"
+                  placeholder="New Element"
+                  [formControlName]="i"
+                  [class.is-invalid]="invalidArrayItem(i)">
+                <small *ngIf="invalidArrayItem(i)">El campo es obligatorio</small>
+              </td>
+              <td>
+                <button type="button"
+                        class="btn btn-danger"
+                        (click)="deleteFormArrayItem(i)">Delete</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <button type="button"
+                class="btn btn-primary"
+                (click)="addFormArrayItem()">+ Add</button>
+      </div>
+    </div>
+    <hr>
+    <div class="row">
+      <div class="col-md-8"></div>
+      <div class="col-md-4">
+        <button type="submit" class="btn btn-success btn-block">Submit</button>
+      </div>
+    </div>
+  </form>
+  
+  <hr>
+  <pre>
+    Estado formulario: {{form.valid}}
+    <br>
+    Status: {{form.status | json}}
+  </pre>
+
+  <pre>
+    {{form.value | json}}
+  </pre>

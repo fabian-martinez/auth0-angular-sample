@@ -6,11 +6,17 @@
   <ng-template #loaded>
     <app-nav-bar></app-nav-bar>
 
+    <div class="alert alert-danger" role="alert" *ngIf="auth.error$ | async as error">
+      {{error}} or <a role="button" (click)="logout()">logout</a>
+    </div>
+
     <div class="container flex-grow-1">
       <div class="mt-5">
         <router-outlet></router-outlet>
       </div>
     </div>
+
+
 
     <app-footer></app-footer>
   </ng-template>

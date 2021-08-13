@@ -1,36 +1,27 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-
-import { environment as env } from '../../../environments/environment';
-
-interface Message {
-  message: string;
-}
+import { ServerService } from '../../services/server.service';
+import { Message } from '../../models/message';
 
 @Component({
   selector: 'app-external-api',
   templateUrl: './external-api.component.html',
 })
 export class ExternalApiComponent implements OnInit {
-  message: string = null;
+  message:string = null;
 
-  constructor(private http: HttpClient) {}
+  constructor(private server: ServerService) {}
 
   ngOnInit(): void {}
 
-  callApi(): void {
-    this.http
-      .get(`${env.dev.serverUrl}/api/messages/public-message`)
-      .subscribe((result: Message) => {
-        this.message = result.message;
-      });
+  getMessage(): void {
+    this.server.getApiMessage().subscribe((result: Message) => {
+      this.message = result.message;
+     });
   }
 
-  callSecureApi(): void {
-    this.http
-      .get(`${env.dev.serverUrl}/api/messages/protected-message`)
-      .subscribe((result: Message) => {
-        this.message = result.message;
-      });
+  getSecuredMessage(): void {
+    this.server.getSecureApiMessage().subscribe((result: Message) => {
+      this.message = result.message;
+     });
   }
 }

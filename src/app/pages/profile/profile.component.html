@@ -16,4 +16,9 @@
   <div class="row" *ngIf="profileJson">
     <pre class="col-12 text-light bg-dark p-4">{{ profileJson }}</pre>
   </div>
+
+  <hr>
+
+  <app-payment-button [payment_info]="payment_info"></app-payment-button>
+  <br>
 </div>

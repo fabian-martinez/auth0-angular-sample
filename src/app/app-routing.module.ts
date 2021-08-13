@@ -5,6 +5,8 @@ import { ProfileComponent } from 'src/app/pages/profile/profile.component';
 import { ExternalApiComponent } from 'src/app/pages/external-api/external-api.component';
 
 import { AuthGuard } from '@auth0/auth0-angular';
+import { FormComponent } from './pages/form/form.component';
+import { ProtectedFormComponent } from './pages/protected-form/protected-form.component';
 
 const routes: Routes = [
   {
@@ -21,6 +23,15 @@ const routes: Routes = [
     path: 'external-api',
     component: ExternalApiComponent,
     canActivate: [AuthGuard],
+  },
+  {
+    path: 'form',
+    component: FormComponent
+  },
+  {
+    path: 'protected-form',
+    component: ProtectedFormComponent,
+    //canActivate: [AuthGuard],
   },
 ];
 
